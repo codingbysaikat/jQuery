@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<!-- 
+    <ul id="main">
+        <li>saikat</li>
+        <li>
+            <ul>
+                <li>Mina</li>
+                <li>Rina</li>
+                <Li>tumpa</Li>
+                <li>sona</li>
+             </ul>
+        </li>
+        <li>sumon</li>
+        <li>khushik</li>
+    </ul> -->
+    <div>
+        <p><b>First textNode</b></p>
+        <p><span><b>First textNode</b></span></p>
+        <p><span><b>Seconed textNode</b></span></p>
+        <p><span><b>third textNode</b></span></p>
+        <p>general</p>
+    </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+(function($){
+// select all the div's, remove all the div's that have a child elements with class='jquery'
+var allElement = $('#main > li:not(:has(ul))');
+allElement.each(function(){
+    console.log($(this).text());
+});
+console.log($('#main > li ').length);
+// concept of when I use find() and filter method
+console.log($('div').find('*').length);
+console.log($('p').filter(':not(:first):not(:last)').text());
+console.log($('p').find('b').filter(':first').text());
+// combine a elements in the wrapper
+divs = $('p').find('span').andSelf();
+divs.each(function(){
+    console.log($(this).text());
+
+})
+})(jQuery)
+</script>
+
+</body>
+</html>
